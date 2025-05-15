@@ -26,7 +26,15 @@ export default function AppTheme({ children }: Readonly<{ children: ReactNode }>
     const theme = Themes[
         colorScheme ?? 'dark'
     ]["green"]
-    return <ThemeProvider value={(colorScheme === 'dark' ? { ...DarkTheme, fonts: NavigationDarkTheme.fonts } : { ...LightTheme, fonts: NavigationDefaultTheme.fonts })}>
+    return <ThemeProvider value={(colorScheme === 'dark' ? {
+        ...DarkTheme,
+        colors: {
+            ...DarkTheme.colors,
+            // background: "rgb(2, 6, 24)"
+        },
+        fonts: NavigationDarkTheme.fonts
+
+    } : { ...LightTheme, fonts: NavigationDefaultTheme.fonts })}>
         <PaperProvider theme={theme}>
             {children}
             <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />

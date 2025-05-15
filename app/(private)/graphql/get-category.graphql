@@ -1,0 +1,14 @@
+query AllCategory {
+  getAllCategory {,
+    id
+    name
+    color
+    value
+    description
+    createdAt
+    updatedAt
+    _count {
+      expenses
+    }
+  }
+}

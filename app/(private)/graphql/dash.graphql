@@ -1,0 +1,35 @@
+query Dash{
+  dash {
+    average {
+      current
+      previous,
+      percentageChange
+      
+    }
+    currency
+    total {
+      current
+      previous
+    }
+    highestCategory {
+      name
+      total
+      percentage
+    }
+    recent {
+      amount
+      date
+      name
+    },
+    categoryStats {
+      name
+      percentage
+      totalAmount
+    },
+    trending {
+      current
+      previous
+      percent
+    }
+  }
+}

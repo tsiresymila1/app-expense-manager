@@ -18,6 +18,53 @@ export type Scalars = {
   DateTimeISO: { input: any; output: any; }
 };
 
+export type AccountCreateManyUserInput = {
+  accessToken?: InputMaybe<Scalars['String']['input']>;
+  accessTokenExpiresAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  accountId: Scalars['String']['input'];
+  createdAt: Scalars['DateTimeISO']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  idToken?: InputMaybe<Scalars['String']['input']>;
+  password?: InputMaybe<Scalars['String']['input']>;
+  providerId: Scalars['String']['input'];
+  refreshToken?: InputMaybe<Scalars['String']['input']>;
+  refreshTokenExpiresAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  scope?: InputMaybe<Scalars['String']['input']>;
+  updatedAt: Scalars['DateTimeISO']['input'];
+};
+
+export type AccountCreateManyUserInputEnvelope = {
+  data: Array<AccountCreateManyUserInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type AccountCreateNestedManyWithoutUserInput = {
+  connect?: InputMaybe<Array<AccountWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<AccountCreateOrConnectWithoutUserInput>>;
+  create?: InputMaybe<Array<AccountCreateWithoutUserInput>>;
+  createMany?: InputMaybe<AccountCreateManyUserInputEnvelope>;
+};
+
+export type AccountCreateOrConnectWithoutUserInput = {
+  create: AccountCreateWithoutUserInput;
+  where: AccountWhereUniqueInput;
+};
+
+export type AccountCreateWithoutUserInput = {
+  accessToken?: InputMaybe<Scalars['String']['input']>;
+  accessTokenExpiresAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  accountId: Scalars['String']['input'];
+  createdAt: Scalars['DateTimeISO']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  idToken?: InputMaybe<Scalars['String']['input']>;
+  password?: InputMaybe<Scalars['String']['input']>;
+  providerId: Scalars['String']['input'];
+  refreshToken?: InputMaybe<Scalars['String']['input']>;
+  refreshTokenExpiresAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  scope?: InputMaybe<Scalars['String']['input']>;
+  updatedAt: Scalars['DateTimeISO']['input'];
+};
+
 export type AccountListRelationFilter = {
   every?: InputMaybe<AccountWhereInput>;
   none?: InputMaybe<AccountWhereInput>;
@@ -44,6 +91,61 @@ export type AccountWhereInput = {
   userId?: InputMaybe<StringFilter>;
 };
 
+export type AccountWhereUniqueInput = {
+  AND?: InputMaybe<Array<AccountWhereInput>>;
+  NOT?: InputMaybe<Array<AccountWhereInput>>;
+  OR?: InputMaybe<Array<AccountWhereInput>>;
+  accessToken?: InputMaybe<StringNullableFilter>;
+  accessTokenExpiresAt?: InputMaybe<DateTimeNullableFilter>;
+  accountId?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  idToken?: InputMaybe<StringNullableFilter>;
+  password?: InputMaybe<StringNullableFilter>;
+  providerId?: InputMaybe<StringFilter>;
+  refreshToken?: InputMaybe<StringNullableFilter>;
+  refreshTokenExpiresAt?: InputMaybe<DateTimeNullableFilter>;
+  scope?: InputMaybe<StringNullableFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  user?: InputMaybe<UserRelationFilter>;
+  userId?: InputMaybe<StringFilter>;
+};
+
+export type ActivityLogCreateManyUserInput = {
+  action: Scalars['String']['input'];
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  ipAddress?: InputMaybe<Scalars['String']['input']>;
+  userAgent?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivityLogCreateManyUserInputEnvelope = {
+  data: Array<ActivityLogCreateManyUserInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ActivityLogCreateNestedManyWithoutUserInput = {
+  connect?: InputMaybe<Array<ActivityLogWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ActivityLogCreateOrConnectWithoutUserInput>>;
+  create?: InputMaybe<Array<ActivityLogCreateWithoutUserInput>>;
+  createMany?: InputMaybe<ActivityLogCreateManyUserInputEnvelope>;
+};
+
+export type ActivityLogCreateOrConnectWithoutUserInput = {
+  create: ActivityLogCreateWithoutUserInput;
+  where: ActivityLogWhereUniqueInput;
+};
+
+export type ActivityLogCreateWithoutUserInput = {
+  action: Scalars['String']['input'];
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  ipAddress?: InputMaybe<Scalars['String']['input']>;
+  userAgent?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ActivityLogListRelationFilter = {
   every?: InputMaybe<ActivityLogWhereInput>;
   none?: InputMaybe<ActivityLogWhereInput>;
@@ -62,6 +164,27 @@ export type ActivityLogWhereInput = {
   user?: InputMaybe<UserRelationFilter>;
   userAgent?: InputMaybe<StringNullableFilter>;
   userId?: InputMaybe<StringFilter>;
+};
+
+export type ActivityLogWhereUniqueInput = {
+  AND?: InputMaybe<Array<ActivityLogWhereInput>>;
+  NOT?: InputMaybe<Array<ActivityLogWhereInput>>;
+  OR?: InputMaybe<Array<ActivityLogWhereInput>>;
+  action?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  description?: InputMaybe<StringNullableFilter>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  ipAddress?: InputMaybe<StringNullableFilter>;
+  user?: InputMaybe<UserRelationFilter>;
+  userAgent?: InputMaybe<StringNullableFilter>;
+  userId?: InputMaybe<StringFilter>;
+};
+
+export type Average = {
+  __typename?: 'Average';
+  current: Scalars['Float']['output'];
+  percentageChange: Scalars['Float']['output'];
+  previous: Scalars['Float']['output'];
 };
 
 export type BoolFilter = {
@@ -92,11 +215,76 @@ export type CategoryCountExpensesArgs = {
   where?: InputMaybe<ExpenseWhereInput>;
 };
 
-export type CategoryInput = {
-  descripion?: InputMaybe<Scalars['String']['input']>;
+export type CategoryCreateInput = {
+  color?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  expenses?: InputMaybe<ExpenseCreateNestedManyWithoutCategoryInput>;
   id?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
-  value: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  user: UserCreateNestedOneWithoutCategoriesInput;
+  value?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CategoryCreateManyUserInput = {
+  color?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  value?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CategoryCreateManyUserInputEnvelope = {
+  data: Array<CategoryCreateManyUserInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type CategoryCreateNestedManyWithoutUserInput = {
+  connect?: InputMaybe<Array<CategoryWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<CategoryCreateOrConnectWithoutUserInput>>;
+  create?: InputMaybe<Array<CategoryCreateWithoutUserInput>>;
+  createMany?: InputMaybe<CategoryCreateManyUserInputEnvelope>;
+};
+
+export type CategoryCreateNestedOneWithoutExpensesInput = {
+  connect?: InputMaybe<CategoryWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<CategoryCreateOrConnectWithoutExpensesInput>;
+  create?: InputMaybe<CategoryCreateWithoutExpensesInput>;
+};
+
+export type CategoryCreateOrConnectWithoutExpensesInput = {
+  create: CategoryCreateWithoutExpensesInput;
+  where: CategoryWhereUniqueInput;
+};
+
+export type CategoryCreateOrConnectWithoutUserInput = {
+  create: CategoryCreateWithoutUserInput;
+  where: CategoryWhereUniqueInput;
+};
+
+export type CategoryCreateWithoutExpensesInput = {
+  color?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  user: UserCreateNestedOneWithoutCategoriesInput;
+  value?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CategoryCreateWithoutUserInput = {
+  color?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  expenses?: InputMaybe<ExpenseCreateNestedManyWithoutCategoryInput>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type CategoryListRelationFilter = {
@@ -105,9 +293,22 @@ export type CategoryListRelationFilter = {
   some?: InputMaybe<CategoryWhereInput>;
 };
 
+export type CategoryNameUserIdValueCompoundUniqueInput = {
+  name: Scalars['String']['input'];
+  userId: Scalars['String']['input'];
+  value: Scalars['String']['input'];
+};
+
 export type CategoryRelationFilter = {
   is?: InputMaybe<CategoryWhereInput>;
   isNot?: InputMaybe<CategoryWhereInput>;
+};
+
+export type CategoryStat = {
+  __typename?: 'CategoryStat';
+  name: Scalars['String']['output'];
+  percentage: Scalars['Float']['output'];
+  totalAmount: Scalars['Float']['output'];
 };
 
 export type CategoryWhereInput = {
@@ -124,6 +325,34 @@ export type CategoryWhereInput = {
   user?: InputMaybe<UserRelationFilter>;
   userId?: InputMaybe<StringFilter>;
   value?: InputMaybe<StringNullableFilter>;
+};
+
+export type CategoryWhereUniqueInput = {
+  AND?: InputMaybe<Array<CategoryWhereInput>>;
+  NOT?: InputMaybe<Array<CategoryWhereInput>>;
+  OR?: InputMaybe<Array<CategoryWhereInput>>;
+  color?: InputMaybe<StringNullableFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  description?: InputMaybe<StringNullableFilter>;
+  expenses?: InputMaybe<ExpenseListRelationFilter>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<StringFilter>;
+  name_userId_value?: InputMaybe<CategoryNameUserIdValueCompoundUniqueInput>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  user?: InputMaybe<UserRelationFilter>;
+  userId?: InputMaybe<StringFilter>;
+  value?: InputMaybe<StringNullableFilter>;
+};
+
+export type DashboardData = {
+  __typename?: 'DashboardData';
+  average: Average;
+  categoryStats: Array<CategoryStat>;
+  currency: Scalars['String']['output'];
+  highestCategory: HighestCategory;
+  recent?: Maybe<Recent>;
+  total: Total;
+  trending: Trending;
 };
 
 export type DateTimeFilter = {
@@ -146,6 +375,115 @@ export type DateTimeNullableFilter = {
   lte?: InputMaybe<Scalars['DateTimeISO']['input']>;
   not?: InputMaybe<NestedDateTimeNullableFilter>;
   notIn?: InputMaybe<Array<Scalars['DateTimeISO']['input']>>;
+};
+
+export type Expense = {
+  __typename?: 'Expense';
+  amount: Scalars['Float']['output'];
+  categoryId: Scalars['String']['output'];
+  createdAt: Scalars['DateTimeISO']['output'];
+  date: Scalars['DateTimeISO']['output'];
+  description: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  notes?: Maybe<Scalars['String']['output']>;
+  payment: Scalars['String']['output'];
+  updatedAt: Scalars['DateTimeISO']['output'];
+  userId: Scalars['String']['output'];
+};
+
+export type ExpenseCreateInput = {
+  amount: Scalars['Float']['input'];
+  category: CategoryCreateNestedOneWithoutExpensesInput;
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  date: Scalars['DateTimeISO']['input'];
+  description: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  payment?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  user: UserCreateNestedOneWithoutExpensesInput;
+};
+
+export type ExpenseCreateManyCategoryInput = {
+  amount: Scalars['Float']['input'];
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  date: Scalars['DateTimeISO']['input'];
+  description: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  payment?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  userId: Scalars['String']['input'];
+};
+
+export type ExpenseCreateManyCategoryInputEnvelope = {
+  data: Array<ExpenseCreateManyCategoryInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ExpenseCreateManyUserInput = {
+  amount: Scalars['Float']['input'];
+  categoryId: Scalars['String']['input'];
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  date: Scalars['DateTimeISO']['input'];
+  description: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  payment?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+};
+
+export type ExpenseCreateManyUserInputEnvelope = {
+  data: Array<ExpenseCreateManyUserInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ExpenseCreateNestedManyWithoutCategoryInput = {
+  connect?: InputMaybe<Array<ExpenseWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ExpenseCreateOrConnectWithoutCategoryInput>>;
+  create?: InputMaybe<Array<ExpenseCreateWithoutCategoryInput>>;
+  createMany?: InputMaybe<ExpenseCreateManyCategoryInputEnvelope>;
+};
+
+export type ExpenseCreateNestedManyWithoutUserInput = {
+  connect?: InputMaybe<Array<ExpenseWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ExpenseCreateOrConnectWithoutUserInput>>;
+  create?: InputMaybe<Array<ExpenseCreateWithoutUserInput>>;
+  createMany?: InputMaybe<ExpenseCreateManyUserInputEnvelope>;
+};
+
+export type ExpenseCreateOrConnectWithoutCategoryInput = {
+  create: ExpenseCreateWithoutCategoryInput;
+  where: ExpenseWhereUniqueInput;
+};
+
+export type ExpenseCreateOrConnectWithoutUserInput = {
+  create: ExpenseCreateWithoutUserInput;
+  where: ExpenseWhereUniqueInput;
+};
+
+export type ExpenseCreateWithoutCategoryInput = {
+  amount: Scalars['Float']['input'];
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  date: Scalars['DateTimeISO']['input'];
+  description: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  payment?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  user: UserCreateNestedOneWithoutExpensesInput;
+};
+
+export type ExpenseCreateWithoutUserInput = {
+  amount: Scalars['Float']['input'];
+  category: CategoryCreateNestedOneWithoutExpensesInput;
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  date: Scalars['DateTimeISO']['input'];
+  description: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  payment?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
 };
 
 export type ExpenseListRelationFilter = {
@@ -172,6 +510,24 @@ export type ExpenseWhereInput = {
   userId?: InputMaybe<StringFilter>;
 };
 
+export type ExpenseWhereUniqueInput = {
+  AND?: InputMaybe<Array<ExpenseWhereInput>>;
+  NOT?: InputMaybe<Array<ExpenseWhereInput>>;
+  OR?: InputMaybe<Array<ExpenseWhereInput>>;
+  amount?: InputMaybe<FloatFilter>;
+  category?: InputMaybe<CategoryRelationFilter>;
+  categoryId?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  date?: InputMaybe<DateTimeFilter>;
+  description?: InputMaybe<StringFilter>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<StringNullableFilter>;
+  payment?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  user?: InputMaybe<UserRelationFilter>;
+  userId?: InputMaybe<StringFilter>;
+};
+
 export type FloatFilter = {
   equals?: InputMaybe<Scalars['Float']['input']>;
   gt?: InputMaybe<Scalars['Float']['input']>;
@@ -183,31 +539,39 @@ export type FloatFilter = {
   notIn?: InputMaybe<Array<Scalars['Float']['input']>>;
 };
 
-export type LoginInput = {
-  email: Scalars['String']['input'];
-  password: Scalars['String']['input'];
+export type HighestCategory = {
+  __typename?: 'HighestCategory';
+  name: Scalars['String']['output'];
+  percentage: Scalars['Float']['output'];
+  total: Scalars['Float']['output'];
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
-  login: Scalars['String']['output'];
-  register: Scalars['String']['output'];
-  upsert: Scalars['String']['output'];
+  deleteCategory: Scalars['Boolean']['output'];
+  deleteExpense: Scalars['Boolean']['output'];
+  upsertCategory: Category;
+  upsertExpense: Expense;
 };
 
 
-export type MutationLoginArgs = {
-  data: LoginInput;
+export type MutationDeleteCategoryArgs = {
+  id: Scalars['String']['input'];
 };
 
 
-export type MutationRegisterArgs = {
-  data: RegisterInput;
+export type MutationDeleteExpenseArgs = {
+  id: Scalars['String']['input'];
 };
 
 
-export type MutationUpsertArgs = {
-  data: CategoryInput;
+export type MutationUpsertCategoryArgs = {
+  data: CategoryCreateInput;
+};
+
+
+export type MutationUpsertExpenseArgs = {
+  data: ExpenseCreateInput;
 };
 
 export type NestedBoolFilter = {
@@ -278,7 +642,9 @@ export type NestedStringNullableFilter = {
 
 export type Query = {
   __typename?: 'Query';
-  getAll: Array<Category>;
+  dash: DashboardData;
+  getAllCategory: Array<Category>;
+  getAllExpense: Array<Expense>;
   test: Scalars['String']['output'];
 };
 
@@ -287,10 +653,48 @@ export enum QueryMode {
   Insensitive = 'insensitive'
 }
 
-export type RegisterInput = {
-  email: Scalars['String']['input'];
-  name: Scalars['String']['input'];
-  password: Scalars['String']['input'];
+export type Recent = {
+  __typename?: 'Recent';
+  amount?: Maybe<Scalars['Float']['output']>;
+  date?: Maybe<Scalars['DateTimeISO']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+};
+
+export type SessionCreateManyUserInput = {
+  createdAt: Scalars['DateTimeISO']['input'];
+  expiresAt: Scalars['DateTimeISO']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  ipAddress?: InputMaybe<Scalars['String']['input']>;
+  token: Scalars['String']['input'];
+  updatedAt: Scalars['DateTimeISO']['input'];
+  userAgent?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SessionCreateManyUserInputEnvelope = {
+  data: Array<SessionCreateManyUserInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type SessionCreateNestedManyWithoutUserInput = {
+  connect?: InputMaybe<Array<SessionWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<SessionCreateOrConnectWithoutUserInput>>;
+  create?: InputMaybe<Array<SessionCreateWithoutUserInput>>;
+  createMany?: InputMaybe<SessionCreateManyUserInputEnvelope>;
+};
+
+export type SessionCreateOrConnectWithoutUserInput = {
+  create: SessionCreateWithoutUserInput;
+  where: SessionWhereUniqueInput;
+};
+
+export type SessionCreateWithoutUserInput = {
+  createdAt: Scalars['DateTimeISO']['input'];
+  expiresAt: Scalars['DateTimeISO']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  ipAddress?: InputMaybe<Scalars['String']['input']>;
+  token: Scalars['String']['input'];
+  updatedAt: Scalars['DateTimeISO']['input'];
+  userAgent?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SessionListRelationFilter = {
@@ -314,6 +718,50 @@ export type SessionWhereInput = {
   userId?: InputMaybe<StringFilter>;
 };
 
+export type SessionWhereUniqueInput = {
+  AND?: InputMaybe<Array<SessionWhereInput>>;
+  NOT?: InputMaybe<Array<SessionWhereInput>>;
+  OR?: InputMaybe<Array<SessionWhereInput>>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  expiresAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  ipAddress?: InputMaybe<StringNullableFilter>;
+  token?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  user?: InputMaybe<UserRelationFilter>;
+  userAgent?: InputMaybe<StringNullableFilter>;
+  userId?: InputMaybe<StringFilter>;
+};
+
+export type SettingCreateManyUserInput = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  key: Scalars['String']['input'];
+  value?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SettingCreateManyUserInputEnvelope = {
+  data: Array<SettingCreateManyUserInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type SettingCreateNestedManyWithoutUserInput = {
+  connect?: InputMaybe<Array<SettingWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<SettingCreateOrConnectWithoutUserInput>>;
+  create?: InputMaybe<Array<SettingCreateWithoutUserInput>>;
+  createMany?: InputMaybe<SettingCreateManyUserInputEnvelope>;
+};
+
+export type SettingCreateOrConnectWithoutUserInput = {
+  create: SettingCreateWithoutUserInput;
+  where: SettingWhereUniqueInput;
+};
+
+export type SettingCreateWithoutUserInput = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  key: Scalars['String']['input'];
+  value?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type SettingListRelationFilter = {
   every?: InputMaybe<SettingWhereInput>;
   none?: InputMaybe<SettingWhereInput>;
@@ -326,6 +774,17 @@ export type SettingWhereInput = {
   OR?: InputMaybe<Array<SettingWhereInput>>;
   id?: InputMaybe<StringFilter>;
   key?: InputMaybe<StringFilter>;
+  user?: InputMaybe<UserRelationFilter>;
+  userId?: InputMaybe<StringFilter>;
+  value?: InputMaybe<StringNullableFilter>;
+};
+
+export type SettingWhereUniqueInput = {
+  AND?: InputMaybe<Array<SettingWhereInput>>;
+  NOT?: InputMaybe<Array<SettingWhereInput>>;
+  OR?: InputMaybe<Array<SettingWhereInput>>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  key?: InputMaybe<Scalars['String']['input']>;
   user?: InputMaybe<UserRelationFilter>;
   userId?: InputMaybe<StringFilter>;
   value?: InputMaybe<StringNullableFilter>;
@@ -361,6 +820,71 @@ export type StringNullableFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Total = {
+  __typename?: 'Total';
+  current: Scalars['Float']['output'];
+  previous: Scalars['Float']['output'];
+};
+
+export type Trending = {
+  __typename?: 'Trending';
+  current: Scalars['Float']['output'];
+  percent: Scalars['Float']['output'];
+  previous: Scalars['Float']['output'];
+};
+
+export type UserCreateNestedOneWithoutCategoriesInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutCategoriesInput>;
+  create?: InputMaybe<UserCreateWithoutCategoriesInput>;
+};
+
+export type UserCreateNestedOneWithoutExpensesInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutExpensesInput>;
+  create?: InputMaybe<UserCreateWithoutExpensesInput>;
+};
+
+export type UserCreateOrConnectWithoutCategoriesInput = {
+  create: UserCreateWithoutCategoriesInput;
+  where: UserWhereUniqueInput;
+};
+
+export type UserCreateOrConnectWithoutExpensesInput = {
+  create: UserCreateWithoutExpensesInput;
+  where: UserWhereUniqueInput;
+};
+
+export type UserCreateWithoutCategoriesInput = {
+  Setting?: InputMaybe<SettingCreateNestedManyWithoutUserInput>;
+  accounts?: InputMaybe<AccountCreateNestedManyWithoutUserInput>;
+  activityLogs?: InputMaybe<ActivityLogCreateNestedManyWithoutUserInput>;
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  email: Scalars['String']['input'];
+  emailVerified?: InputMaybe<Scalars['Boolean']['input']>;
+  expenses?: InputMaybe<ExpenseCreateNestedManyWithoutUserInput>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  sessions?: InputMaybe<SessionCreateNestedManyWithoutUserInput>;
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+};
+
+export type UserCreateWithoutExpensesInput = {
+  Setting?: InputMaybe<SettingCreateNestedManyWithoutUserInput>;
+  accounts?: InputMaybe<AccountCreateNestedManyWithoutUserInput>;
+  activityLogs?: InputMaybe<ActivityLogCreateNestedManyWithoutUserInput>;
+  categories?: InputMaybe<CategoryCreateNestedManyWithoutUserInput>;
+  createdAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+  email: Scalars['String']['input'];
+  emailVerified?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  sessions?: InputMaybe<SessionCreateNestedManyWithoutUserInput>;
+  updatedAt?: InputMaybe<Scalars['DateTimeISO']['input']>;
+};
+
 export type UserRelationFilter = {
   is?: InputMaybe<UserWhereInput>;
   isNot?: InputMaybe<UserWhereInput>;
@@ -385,80 +909,149 @@ export type UserWhereInput = {
   updatedAt?: InputMaybe<DateTimeFilter>;
 };
 
-export type LoginMutationVariables = Exact<{
-  data: LoginInput;
-}>;
+export type UserWhereUniqueInput = {
+  AND?: InputMaybe<Array<UserWhereInput>>;
+  NOT?: InputMaybe<Array<UserWhereInput>>;
+  OR?: InputMaybe<Array<UserWhereInput>>;
+  Setting?: InputMaybe<SettingListRelationFilter>;
+  accounts?: InputMaybe<AccountListRelationFilter>;
+  activityLogs?: InputMaybe<ActivityLogListRelationFilter>;
+  categories?: InputMaybe<CategoryListRelationFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  emailVerified?: InputMaybe<BoolFilter>;
+  expenses?: InputMaybe<ExpenseListRelationFilter>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<StringNullableFilter>;
+  name?: InputMaybe<StringNullableFilter>;
+  sessions?: InputMaybe<SessionListRelationFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+};
+
+export type DashQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type LoginMutation = { __typename?: 'Mutation', login: string };
+export type DashQuery = { __typename?: 'Query', dash: { __typename?: 'DashboardData', currency: string, average: { __typename?: 'Average', current: number, previous: number, percentageChange: number }, total: { __typename?: 'Total', current: number, previous: number }, highestCategory: { __typename?: 'HighestCategory', name: string, total: number, percentage: number }, recent?: { __typename?: 'Recent', amount?: number | null, date?: any | null, name?: string | null } | null, categoryStats: Array<{ __typename?: 'CategoryStat', name: string, percentage: number, totalAmount: number }>, trending: { __typename?: 'Trending', current: number, previous: number, percent: number } } };
 
-export type RegisterMutationVariables = Exact<{
-  data: RegisterInput;
-}>;
+export type AllCategoryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type RegisterMutation = { __typename?: 'Mutation', register: string };
+export type AllCategoryQuery = { __typename?: 'Query', getAllCategory: Array<{ __typename?: 'Category', id: string, name: string, color?: string | null, value?: string | null, description?: string | null, createdAt: any, updatedAt: any, _count?: { __typename?: 'CategoryCount', expenses: number } | null }> };
 
 
-export const LoginDocument = gql`
-    mutation Login($data: LoginInput!) {
-  login(data: $data)
+export const DashDocument = gql`
+    query Dash {
+  dash {
+    average {
+      current
+      previous
+      percentageChange
+    }
+    currency
+    total {
+      current
+      previous
+    }
+    highestCategory {
+      name
+      total
+      percentage
+    }
+    recent {
+      amount
+      date
+      name
+    }
+    categoryStats {
+      name
+      percentage
+      totalAmount
+    }
+    trending {
+      current
+      previous
+      percent
+    }
+  }
 }
     `;
-export type LoginMutationFn = Apollo.MutationFunction<LoginMutation, LoginMutationVariables>;
 
 /**
- * __useLoginMutation__
+ * __useDashQuery__
  *
- * To run a mutation, you first call `useLoginMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useLoginMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
+ * To run a query within a React component, call `useDashQuery` and pass it any options that fit your needs.
+ * When your component renders, `useDashQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
  *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const [loginMutation, { data, loading, error }] = useLoginMutation({
+ * const { data, loading, error } = useDashQuery({
  *   variables: {
- *      data: // value for 'data'
  *   },
  * });
  */
-export function useLoginMutation(baseOptions?: Apollo.MutationHookOptions<LoginMutation, LoginMutationVariables>) {
+export function useDashQuery(baseOptions?: Apollo.QueryHookOptions<DashQuery, DashQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument, options);
+        return Apollo.useQuery<DashQuery, DashQueryVariables>(DashDocument, options);
       }
-export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
-export type LoginMutationResult = Apollo.MutationResult<LoginMutation>;
-export type LoginMutationOptions = Apollo.BaseMutationOptions<LoginMutation, LoginMutationVariables>;
-export const RegisterDocument = gql`
-    mutation Register($data: RegisterInput!) {
-  register(data: $data)
+export function useDashLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DashQuery, DashQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<DashQuery, DashQueryVariables>(DashDocument, options);
+        }
+export function useDashSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<DashQuery, DashQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<DashQuery, DashQueryVariables>(DashDocument, options);
+        }
+export type DashQueryHookResult = ReturnType<typeof useDashQuery>;
+export type DashLazyQueryHookResult = ReturnType<typeof useDashLazyQuery>;
+export type DashSuspenseQueryHookResult = ReturnType<typeof useDashSuspenseQuery>;
+export type DashQueryResult = Apollo.QueryResult<DashQuery, DashQueryVariables>;
+export const AllCategoryDocument = gql`
+    query AllCategory {
+  getAllCategory {
+    id
+    name
+    color
+    value
+    description
+    createdAt
+    updatedAt
+    _count {
+      expenses
+    }
+  }
 }
     `;
-export type RegisterMutationFn = Apollo.MutationFunction<RegisterMutation, RegisterMutationVariables>;
 
 /**
- * __useRegisterMutation__
+ * __useAllCategoryQuery__
  *
- * To run a mutation, you first call `useRegisterMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useRegisterMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
+ * To run a query within a React component, call `useAllCategoryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllCategoryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
  *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const [registerMutation, { data, loading, error }] = useRegisterMutation({
+ * const { data, loading, error } = useAllCategoryQuery({
  *   variables: {
- *      data: // value for 'data'
  *   },
  * });
  */
-export function useRegisterMutation(baseOptions?: Apollo.MutationHookOptions<RegisterMutation, RegisterMutationVariables>) {
+export function useAllCategoryQuery(baseOptions?: Apollo.QueryHookOptions<AllCategoryQuery, AllCategoryQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<RegisterMutation, RegisterMutationVariables>(RegisterDocument, options);
+        return Apollo.useQuery<AllCategoryQuery, AllCategoryQueryVariables>(AllCategoryDocument, options);
       }
-export type RegisterMutationHookResult = ReturnType<typeof useRegisterMutation>;
-export type RegisterMutationResult = Apollo.MutationResult<RegisterMutation>;
-export type RegisterMutationOptions = Apollo.BaseMutationOptions<RegisterMutation, RegisterMutationVariables>;
+export function useAllCategoryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllCategoryQuery, AllCategoryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AllCategoryQuery, AllCategoryQueryVariables>(AllCategoryDocument, options);
+        }
+export function useAllCategorySuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AllCategoryQuery, AllCategoryQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<AllCategoryQuery, AllCategoryQueryVariables>(AllCategoryDocument, options);
+        }
+export type AllCategoryQueryHookResult = ReturnType<typeof useAllCategoryQuery>;
+export type AllCategoryLazyQueryHookResult = ReturnType<typeof useAllCategoryLazyQuery>;
+export type AllCategorySuspenseQueryHookResult = ReturnType<typeof useAllCategorySuspenseQuery>;
+export type AllCategoryQueryResult = Apollo.QueryResult<AllCategoryQuery, AllCategoryQueryVariables>;
